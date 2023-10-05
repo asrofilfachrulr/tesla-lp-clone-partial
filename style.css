@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Gabarito:wght@400;500;600&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+#banner-top {
+  font-family: 'AR One Sans', sans-serif;
+  color: white;
+  background: radial-gradient(
+    ellipse at 35% -40%, 
+    #435482 5%, 
+    black
+    );
+  transition: background 200ms ease-in-out;
+}
+
+nav {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-items {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
+.nav-items a {
+  color: white;
+}
+
+#banner-top a {
+  color: white;
+}
+
+#main-content {
+  background: url('./hero-img.png');
+  background-position: 0% 80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dimmed-edge {
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6),
+    transparent 20%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+#content .top * {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+#content .top h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+#content .top .pricetag {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+#content .top .note {
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+#content .bottom button {
+  height: 40px;
+  width: 264px;
+  padding: 0.25em;
+  border: none;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+
+#content .bottom p, #content .bottom a {
+  color: white;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.expandable-section {
+  background-color: white;
+  height: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: height 500ms ease-in-out;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.expandable-section > .expandable-content {
+  color: black;
+  z-index: 99;
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.expandable-section > .expandable-content .items {
+  width: 60%;
+  justify-content: center;
+}
+
+.expandable-section > .expandable-content .options {
+  width: 20%;
+  border-left: 1px solid #e2e2e2;
+  padding-left: 2.75rem;
+}
+
+.expandable-section > .expandable-content .options ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expandable-section > .expandable-content .options li {
+  list-style-type: none;
+}
+
+.expandable-section > .expandable-content .options li a{
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.expandable-section > .expandable-content .options li a:hover {
+  text-decoration: underline;
+}
+
+.expandable-section > .expandable-content .item img{
+  width: 180px;
+  height: auto;
+}
+
+.expandable-section > .expandable-content .item .links {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.expandable-section > .expandable-content .item a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.expandable-section > .expandable-content p {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-block: 0.25em;
+}
+
+/* Perubahan umum ketika salah satu nav items di hover */
+#banner-top:has(+ #main-content .nav-items:hover),
+#banner-top:has(+ #main-content .expandable-section:hover){
+  background: black;
+  color: white;
+}
+
+nav .left svg {
+  transition: fill 600ms ease-in-out;
+}
+
+nav:has(.nav-items:hover) .left svg,
+nav:has(.expandable-section:hover) .left svg {
+  fill: black;
+}
+
+nav .nav-items {
+  transition: color 600ms ease-in-out;
+}
+
+nav:has(.nav-items:hover) .nav-items,
+nav:has(.expandable-section:hover) .nav-items {
+  color: black;
+}
+
+nav .right a {
+  transition: color 600ms ease-in-out;
+}
+
+nav:has(.nav-items:hover) .right a,
+nav:has(.expandable-section:hover) .right a {
+  color: black;
+}
+
+.nav-items:hover {
+  background-color: #F2F2F2;
+}
+
+/* Perubahan spesifik ketika salah satu nav items di hover */
+nav:has(#nav-vehicle:hover) #expandable-section-vehicle,
+nav:has(#expandable-section-vehicle:hover) #expandable-section-vehicle {
+  height: 450px;
+  opacity: 1;
+}
+
+nav:has(#expandable-section-vehicle:hover) #nav-vehicle {
+  background-color: #F2F2F2;
+}
+
+nav:has(#nav-energy:hover) #expandable-section-energy,
+nav:has(#expandable-section-energy:hover) #expandable-section-energy {
+  height: 450px;
+  opacity: 1;
+}
+
+nav:has(#expandable-section-energy:hover) #nav-energy {
+  background-color: #F2F2F2;
+}
+
+nav:has(#nav-charging:hover) #expandable-section-charging,
+nav:has(#expandable-section-charging:hover) #expandable-section-charging {
+  height: 450px;
+  opacity: 1;
+}
+
+nav:has(#expandable-section-charging:hover) #nav-charging {
+  background-color: #F2F2F2;
+}
+
+nav:has(#nav-discover:hover) #expandable-section-discover,
+nav:has(#expandable-section-discover:hover) #expandable-section-discover  {
+  height: 450px;
+  opacity: 1;
+}
+
+nav:has(#expandable-section-discover:hover) #nav-discover {
+  background-color: #F2F2F2;
+}
+
+nav:has(#nav-shop:hover) #expandable-section-shop,
+nav:has(#expandable-section-shop:hover) #expandable-section-shop {
+  height: 350px;
+  opacity: 1;
+}
+
+nav:has(#expandable-section-shop:hover) #nav-shop {
+  background-color: #F2F2F2;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-99 {
+  z-index: 99;
+}
